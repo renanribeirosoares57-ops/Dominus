@@ -5,7 +5,7 @@
   <link rel="shortcut icon" href="favicon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>  DOMINUS | Servidor do Discord, para jogar com amigos e fazer amizades</title>
+  <title>A DOMINUS | Servidor do Discord, para jogar com amigos e fazer amizades</title>
   <meta name="description" content="Site oficial do servidor A DOMINUS no Discord. Comunidade, novidades, amizade e destaques." />
   <meta name="keywords" content="A DOMINUS, Discord, servidor Discord, comunidade, games, tecnologia" />
   <meta name="author" content="Servidor A DOMINUS" />
@@ -64,6 +64,16 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .video-fundo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
 
     nav {
@@ -189,22 +199,18 @@
       font-weight: bold;
       z-index: 1000;
     }
-
-    /* Vídeo dentro da seção Início */
-    #inicio video {
-      width: 100%;
-      max-width: 800px;
-      margin-top: 20px;
-      border-radius: 12px;
-    }
   </style>
 </head>
 <body>
   <button class="dark-toggle">Modo Escuro</button>
 
-  <header>
+  <header id="inicio" class="active-section">
+    <video autoplay muted loop playsinline class="video-fundo">
+      <source src="video-inicio.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos.
+    </video>
     <h1>A DOMINUS</h1>
-    <p>Servidor oficial da comunidade <strong> DOMINUS</strong> no Discord.</p>
+    <p>Servidor oficial da comunidade <strong>A DOMINUS</strong> no Discord.</p>
     <div style="margin-top:25px; display:flex; justify-content:center; align-items:center; gap:12px;">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord Logo" width="40" style="filter: invert(1);">
       <span style="font-size:1.1rem; font-weight:bold;">Servidor do Discord</span>
@@ -224,28 +230,18 @@
     <section id="inicio" class="section active">
       <h2>Bem-vindo à A DOMINUS</h2>
       <p>Entre, divirta-se e faça amizades na nossa comunidade.</p>
-      <video autoplay muted loop playsinline>
-        <source src="video-inicio.mp4." type="video/mp4">
-        Seu navegador não suporta vídeos.
-      </video>
     </section>
 
     <!-- Sobre -->
     <section id="sobre" class="section">
       <h2>Introdução do Servidor</h2>
-      <p>O servidor <strong> DOMINUS</strong> foi criado para pessoas que gostam de jogar em call com amigos, se divertir e criar times. Aqui você encontra um ambiente amigável e colaborativo, onde qualquer jogador é bem-vindo.</p>
+      <p>O servidor <strong>A DOMINUS</strong> foi criado para pessoas que gostam de jogar em call com amigos, se divertir e criar times. Aqui você encontra um ambiente amigável e colaborativo, onde qualquer jogador é bem-vindo.</p>
       <p>Jogamos títulos como <strong>Minecraft</strong>, <strong>Roblox</strong>, <strong>Rocket League</strong>, <strong>Free Fire</strong>, <strong>Fortnite</strong>, <strong>EOT</strong> e muitos outros.</p>
 
       <div class="cards">
         <div class="card">
           <h3>História do Servidor</h3>
-          <p>
-            Tudo começou quando eu, Renan, junto com dois amigos, decidimos criar uma forma de reunir várias pessoas em um único espaço virtual. 
-            O objetivo era ajudar todos a desenvolverem suas habilidades sociais, superar comportamentos antissociais e criar novas amizades. 
-            Inicialmente, a primeira tentativa não obteve o sucesso desejado, mas não desistimos. Continuamos investindo nosso tempo e esforço no servidor, mantendo a mesma ideia de aproximar pessoas de diferentes lugares. 
-            A DOMINUS nasceu com a finalidade de criar conexões genuínas, permitir que as pessoas jogassem juntas e, acima de tudo, fortalecer amizades verdadeiras. 
-            Hoje, o servidor existe e prospera graças à dedicação de três pessoas visionárias, mostrando que união e persistência transformam sonhos em realidade.
-          </p>
+          <p>Tudo começou quando eu, Renan, junto com dois amigos, decidimos criar uma forma de reunir várias pessoas em um único espaço virtual. O objetivo era ajudar todos a desenvolverem suas habilidades sociais, superar comportamentos antissociais e criar novas amizades. Inicialmente, a primeira tentativa não obteve o sucesso desejado, mas não desistimos. Continuamos investindo nosso tempo e esforço no servidor, mantendo a mesma ideia de aproximar pessoas de diferentes lugares. A DOMINUS nasceu com a finalidade de criar conexões genuínas, permitir que as pessoas jogassem juntas e, acima de tudo, fortalecer amizades verdadeiras. Hoje, o servidor existe e prospera graças à dedicação de três pessoas visionárias, mostrando que união e persistência transformam sonhos em realidade.</p>
         </div>
       </div>
     </section>
@@ -255,9 +251,9 @@
       <h2>Comunidade em Ação</h2>
       <div class="cards">
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1605902711622-cfb43c44367f" alt="Pessoas jogando juntas">
+          <img src="avatar-entre-servidor.jpg" alt="Pessoas jogando juntas">
           <h3>Entre no servidor</h3>
-          <p>Faça parte da comunidade  DOMINUS e comece sua jornada agora.</p>
+          <p>Faça parte da comunidade A DOMINUS e comece sua jornada agora.</p>
           <a href="https://discord.gg/GeZJnRpfcD" target="_blank" style="display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:#0a1f44;color:#fff;font-weight:bold;text-decoration:none;">Entrar no Discord</a>
         </div>
         <div class="card">
@@ -319,12 +315,14 @@
   </footer>
 
   <script>
+    // Dark mode toggle
     const toggle = document.querySelector('.dark-toggle');
     toggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       toggle.textContent = document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Escuro';
     });
 
+    // Scroll animation
     const sections = document.querySelectorAll('.section');
     sections.forEach(sec => {
       sec.style.opacity = 0;
@@ -342,6 +340,7 @@
     }, { threshold: 0.2 });
     sections.forEach(sec => observer.observe(sec));
 
+    // Navegação entre abas
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
