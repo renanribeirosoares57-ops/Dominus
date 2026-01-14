@@ -5,11 +5,12 @@
   <link rel="shortcut icon" href="favicon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOMINUS | Servidor do Discord, para jogar com amigos, fazer amizades. Jogue Minecraft, Roblox, CSGO e muito mais!</title>
+  <title>DOMINUS | Servidor do Discord, para jogar com amigos e fazer amizades</title>
   <meta name="description" content="Site oficial do servidor DOMINUS no Discord. Comunidade, novidades, amizade e destaques." />
   <meta name="keywords" content="DOMINUS, Discord, servidor Discord, comunidade, games, tecnologia" />
   <meta name="author" content="Servidor DOMINUS" />
   <meta name="robots" content="index, follow" />
+
   <style>
     html { scroll-behavior: smooth; }
     :root {
@@ -17,46 +18,37 @@
       --azul-claro: #4da3ff;
       --branco: #ffffff;
       --cinza: #f2f4f8;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --top-gold: gold;
+      --dark-bg: #121212;
+      --dark-card: #1e1e1e;
+      --dark-text: #eaeaea;
     }
 
     body {
       background-color: var(--cinza);
       color: var(--azul-escuro);
-      transition: background 0.3s, color 0.3s;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: 0.3s;
     }
 
-    /* === HEADER COM BANNER === */
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
     header {
-      position: relative;
-      background: url('banner-header.png') no-repeat center center;
-      background-size: cover;
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-claro));
       color: var(--branco);
       padding: 80px 20px;
       text-align: center;
-      height: 450px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      background-image: url('banner.png'); /* Banner de fundo */
+      background-size: cover;
+      background-position: center;
     }
 
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.4); /* sombra escura para destacar texto */
-      z-index: 0;
-    }
-
-    header h1, header p, header img, header span {
-      position: relative;
-      z-index: 1;
+    header.dark-mode {
+      filter: brightness(0.8);
     }
 
     header h1 {
@@ -68,6 +60,8 @@
       font-size: 1.2rem;
       margin-top: 15px;
       max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     nav {
@@ -101,12 +95,23 @@
       padding: 40px;
       margin-bottom: 40px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    body.dark-mode .section {
+      background-color: var(--dark-card);
+      color: var(--dark-text);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
 
     .section h2 {
       color: var(--azul-escuro);
       margin-bottom: 15px;
       font-size: 2rem;
+    }
+
+    body.dark-mode .section h2 {
+      color: var(--branco);
     }
 
     .cards {
@@ -122,6 +127,12 @@
       padding: 25px;
       border-radius: 14px;
       transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    body.dark-mode .card {
+      background: #2a2a2a;
+      color: var(--dark-text);
     }
 
     .card:hover {
@@ -129,8 +140,18 @@
       box-shadow: 0 15px 30px rgba(0,0,0,0.25);
     }
 
-    .card h3 {
-      margin-bottom: 10px;
+    .card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .top-player img {
+      border: 3px solid var(--top-gold);
     }
 
     footer {
@@ -146,85 +167,31 @@
       font-weight: bold;
     }
 
-    /* === TEMA CLARO/ESCURO === */
-    .dark-mode {
-      background-color: #1a1a1a;
-      color: #f2f2f2;
-    }
-
-    .dark-mode nav {
-      background-color: #111;
-    }
-
-    .dark-mode .card {
-      background: linear-gradient(135deg, #333, #555);
-      color: #fff;
-    }
-
-    /* === ABAS RANKING === */
-    .ranking {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .ranking .player {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      background-color: var(--azul-escuro);
-      padding: 12px;
-      border-radius: 10px;
-      color: #fff;
-      transition: transform 0.3s;
-    }
-
-    .ranking .player:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    .ranking img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-    }
-
-    .tab-buttons {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .tab-buttons button {
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
+    /* Dark Mode toggle button */
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
       background-color: var(--azul-claro);
       color: var(--branco);
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
       font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .tab-buttons button:hover {
-      background-color: #7bb9ff;
-    }
-
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
+      z-index: 1000;
     }
 
   </style>
 </head>
 <body>
+  <button class="dark-toggle">Modo Escuro</button>
+
   <header id="inicio">
     <h1>DOMINUS</h1>
-    <p>Servidor oficial da comunidade DOMINUS no Discord, para jogar com amigos e se divertir!</p>
+    <p>
+      Servidor oficial da comunidade <strong>DOMINUS</strong> no Discord.
+    </p>
     <div style="margin-top:25px; display:flex; justify-content:center; align-items:center; gap:12px;">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord Logo" width="40" style="filter: invert(1);">
       <span style="font-size:1.1rem; font-weight:bold;">Servidor do Discord</span>
@@ -234,83 +201,107 @@
   <nav>
     <a href="#inicio">Início</a>
     <a href="#sobre">Sobre</a>
+    <a href="#primeiro">Primeiro Espaço</a>
     <a href="#ranking">Ranking</a>
     <a href="#contato">Contato</a>
   </nav>
 
   <main class="container">
-    <section class="section">
-      <h2>O que você pode fazer aqui</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>🌐 Site Oficial</h3>
-          <p>Este site representa oficialmente o servidor DOMINUS no Discord.</p>
-        </div>
-        <div class="card">
-          <h3>💬 Comunidade</h3>
-          <p>Entre para conversar, fazer amizades, jogar em call e participar de eventos com a galera.</p>
-          <a href="https://discord.gg/GeZJnRpfcD" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:#0a1f44;color:#fff;font-weight:bold;text-decoration:none;">Entrar no Discord</a>
-        </div>
-        <div class="card">
-          <h3>🚀 Novidades</h3>
-          <p>Fique por dentro de anúncios e atualizações do servidor.</p>
-        </div>
-      </div>
-    </section>
 
     <section id="sobre" class="section">
       <h2>Introdução do Servidor</h2>
-      <p>O servidor <strong>DOMINUS</strong> foi criado para pessoas que gostam de jogar — e principalmente para quem curte jogar em <strong>call</strong> com amigos.</p>
-      <p style="margin-top:10px;">Jogamos títulos como <strong>Minecraft</strong>, <strong>Roblox</strong>, <strong>Rocket League</strong>, <strong>Free Fire</strong>, <strong>Fortnite</strong>, <strong>EOT</strong> e muitos outros.</p>
-      <p style="margin-top:10px;">Mesmo que você jogue outros jogos, é bem-vindo — o DOMINUS é uma comunidade aberta para todo tipo de player.</p>
+      <p>
+        O servidor <strong>DOMINUS</strong> foi criado para pessoas que gostam de jogar — e principalmente para quem curte
+        jogar em <strong>call</strong> com amigos. Aqui a ideia é se divertir, conhecer gente nova e formar times para jogar juntos.
+      </p>
+      <p style="margin-top:10px;">
+        Jogamos títulos como <strong>Minecraft</strong>, <strong>Roblox</strong>, <strong>Rocket League</strong>, <strong>Free Fire</strong>,
+        <strong>Fortnite</strong>, <strong>EOT</strong> e muitos outros. Se o jogo existir e a galera animar, ele entra na call.
+      </p>
     </section>
 
+    <section id="primeiro" class="section">
+      <h2>Comunidade em Ação</h2>
+      <p>
+        No DOMINUS, a diversão acontece em grupo. Pessoas jogando, conversando em call e criando momentos únicos.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1605902711622-cfb43c44367f" alt="Pessoas jogando juntas">
+          <h3>Entre no servidor</h3>
+          <p>Faça parte da comunidade DOMINUS e comece sua jornada agora.</p>
+          <a href="https://discord.gg/GeZJnRpfcD" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:#0a1f44;color:#fff;font-weight:bold;text-decoration:none;">Entrar no Discord</a>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420" alt="Jogadores se divertindo">
+          <h3>Se divirta</h3>
+          <p>Jogue em call, dê risada e aproveite cada momento com a galera.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e" alt="Jogando videogame">
+          <h3>Jogue</h3>
+          <p>Escolha seu jogo favorito e partiu gameplay com amigos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ranking Section -->
     <section id="ranking" class="section">
       <h2>Ranking dos Jogadores</h2>
-
-      <div class="tab-buttons">
-        <button onclick="openTab('top5')">Top 5</button>
-        <button onclick="openTab('top10')">Top 10</button>
+      <div class="cards">
+        <div class="card top-player">
+          <img src="avatar-renanfatos.png" alt="Renanfatos">
+          <h3>#1 - Renanfatos</h3>
+          <p>XP Total: 1.864 // Nível: 1</p>
+        </div>
+        <div class="card">
+          <img src="avatar-rlk.png" alt="Rlk do guinda">
+          <h3>#2 - Rlk do guinda</h3>
+          <p>XP Total: 1.695 // Nível: 1</p>
+        </div>
+        <div class="card">
+          <img src="avatar-mtt.png" alt="mtt">
+          <h3>#3 - mtt</h3>
+          <p>XP Total: 1.251 // Nível: 1</p>
+        </div>
+        <div class="card">
+          <img src="avatar-eddie.png" alt="Eddie">
+          <h3>#4 - Eddie</h3>
+          <p>XP Total: 628 // Nível: 0</p>
+        </div>
+        <div class="card">
+          <img src="avatar-dumba.png" alt="Dumba">
+          <h3>#5 - Dumba</h3>
+          <p>XP Total: 445 // Nível: 0</p>
+        </div>
       </div>
-
-      <div id="top5" class="tab-content active ranking">
-        <div class="player"><img src="https://i.pravatar.cc/50?img=1"><span>#1 Renan</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=2"><span>#2 João</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=3"><span>#3 Maria</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=4"><span>#4 Pedro</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=5"><span>#5 Ana</span></div>
-      </div>
-
-      <div id="top10" class="tab-content ranking">
-        <div class="player"><img src="https://i.pravatar.cc/50?img=1"><span>#1 Renan</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=2"><span>#2 João</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=3"><span>#3 Maria</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=4"><span>#4 Pedro</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=5"><span>#5 Ana</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=6"><span>#6 Lucas</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=7"><span>#7 Júlia</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=8"><span>#8 Carla</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=9"><span>#9 Rafael</span></div>
-        <div class="player"><img src="https://i.pravatar.cc/50?img=10"><span>#10 Felipe</span></div>
-      </div>
-
     </section>
 
     <section id="contato" class="section">
       <h2>Contato</h2>
-      <p>Para parcerias, dúvidas ou sugestões, entre em contato pelo e-mail abaixo:</p>
-      <p style="margin-top:10px;font-weight:bold;">📧 renanribeirosoares57@gmail.com</p>
+      <p>
+        Para parcerias, dúvidas ou sugestões, entre em contato pelo e-mail abaixo:
+      </p>
+      <p style="margin-top:10px;font-weight:bold;">
+        📧 renanribeirosoares57@gmail.com
+      </p>
     </section>
 
   </main>
 
   <footer>
-    <p>© 2026 <span>DOMINUS</span> — Servidor oficial no Discord.</p>
+    <p>© 2025 <span>DOMINUS</span> — Servidor oficial no Discord.</p>
     <p style="font-size:0.9rem; margin-top:8px;">Este site é indexável e pesquisável no Google.</p>
   </footer>
 
   <script>
-    // Animação simples ao rolar a página
+    // Dark mode toggle
+    const toggle = document.querySelector('.dark-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Scroll animation
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -327,18 +318,6 @@
       sec.style.transition = '0.6s ease';
       observer.observe(sec);
     });
-
-    // Função das abas do ranking
-    function openTab(tabName){
-      const tabs = document.querySelectorAll('.tab-content');
-      tabs.forEach(t => t.classList.remove('active'));
-      document.getElementById(tabName).classList.add('active');
-    }
-
-    // Alternar tema claro/escuro (opcional)
-    function toggleDarkMode(){
-      document.body.classList.toggle('dark-mode');
-    }
   </script>
 </body>
 </html>
