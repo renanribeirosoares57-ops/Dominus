@@ -86,16 +86,7 @@
       flex-wrap: wrap;
     }
 
-   nav a {
-  color: #ffffff !important;
-  padding: 8px 14px;
-  border-radius: 20px;
-  background: rgba(30, 144, 255, 0.85); /* azul do balão */
-  margin: 0 6px;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
+ 
 
     nav a:hover, nav a.active {
       color: var(--azul-claro);
@@ -208,6 +199,20 @@
   margin-top: 25px;
 }
   
+.menu a {
+  color: #ffffff;
+  background-color: #1e90ff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  margin: 0 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #187bcd;
+}
 
 
   </style>
@@ -224,14 +229,15 @@
     </div>
   </header>
 
-  <nav>
+<nav class="menu">
     <a data-target="inicio" class="active">Início</a>
     <a data-target="sobre">Sobre</a>
     <a data-target="primeiro">Primeiro Espaço</a>
     <a data-target="ranking">Ranking</a>
     <a data-target="patrocinadores">Patrocinadores</a>
     <a data-target="contato">Contato</a>
-  </nav>
+</nav>
+
 
   <main class="container">
     <!-- Início -->
