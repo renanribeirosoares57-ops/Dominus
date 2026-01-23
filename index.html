@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title> DOMINUS Servidor do Discord, para jogar com amigos e fazer amizades, aqui jogamos jogos como, Minecraft,Roblox, Rocket League,e muitos outros.</title>
   <meta name="description" content="Site oficial do servidor A DOMINUS no Discord,jogue games com seus amigos ou faça novas amizades. Comunidade, novidades, amizade e destaques." />
-  <meta name="keywords" content="DOMINUS, Discord, servidor Discord, comunidade, games, tecnologia" />
+  <meta name="keywords" content="DOMINUS server,dominus Discord, dominus servidor Discord, dominus comunidade" />
   <meta name="author" content="Servidor DOMINUS" />
   <meta name="robots" content="index, follow" />
 
@@ -65,11 +65,12 @@
     }
 
     .video-fundo {
-      width: 100%;
-      border-radius: 16px;
-      max-height: 400px;
-      object-fit: cover;
-      margin-bottom: 20px;
+  width: 100%;
+  max-width: 720px;   /* deixa menor */
+  max-height: 260px;  /* mantém formato horizontal */
+  border-radius: 14px;
+  object-fit: cover;
+}
     }
 
     nav {
@@ -220,14 +221,17 @@
 
   <main class="container">
     <!-- Início -->
-    <section id="inicio" class="section active">
-      <video class="video-fundo" autoplay muted loop playsinline>
-        <source src="Agent_video_Pippit_20260123182346.mp4" type="video/mp4">
-        Seu navegador não suporta vídeos.
-      </video>
-      <h2>Bem-vindo à DOMINUS</h2>
-      <p>Entre, divirta-se e faça amizades na nossa comunidade.</p>
-    </section>
+   <section id="inicio" class="section active">
+  <h2>Bem-vindo à DOMINUS</h2>
+  <p>Entre, divirta-se e faça amizades na nossa comunidade.</p>
+
+  <div class="video-wrapper">
+    <video class="video-fundo" autoplay muted loop playsinline>
+      <source src="Agent_video_Pippit_20260123182346.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos.
+    </video>
+  </div>
+</section>
 
     <!-- Sobre -->
     <section id="sobre" class="section">
