@@ -64,12 +64,14 @@
       margin-right: auto;
     }
 
-    .video-fundo {
+    ..video-fundo {
   width: 100%;
   max-width: 720px;   /* deixa menor */
   max-height: 260px;  /* mantém formato horizontal */
   border-radius: 20px;
   object-fit: cover;
+}
+
 }
     }
 
@@ -195,7 +197,12 @@
       cursor: pointer;
       font-weight: bold;
       z-index: 1000;
-    }
+    } .video-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
   </style>
 </head>
 <body>
