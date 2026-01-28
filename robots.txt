@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://renanribeirosoares57-ops.github.io/Dominus/sitemap.xml
