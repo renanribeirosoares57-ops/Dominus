@@ -33,7 +33,175 @@
 
     body.dark-mode {
       background-color: var(--dark-bg);
-@@ -205,50 +205,65 @@
+      color: var(--dark-text);
+    }
+
+    header {
+      min-height: 400px;
+      text-align: center;
+      color: var(--branco);
+      padding: 80px 20px;
+      background-image: url('banner-header.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    header.dark-mode {
+      filter: brightness(0.8);
+    }
+
+    header h1 {
+      font-size: 4rem;
+      letter-spacing: 6px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .video-fundo {
+      width: 100%;
+      border-radius: 16px;
+      max-height: 400px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    nav {
+      background-color: var(--azul-escuro);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--azul-claro);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      background-color: var(--branco);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      display: none;
+    }
+
+    body.dark-mode .section {
+      background-color: var(--dark-card);
+      color: var(--dark-text);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .section h2 {
+      color: var(--azul-escuro);
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+
+    body.dark-mode .section h2 {
+      color: var(--branco);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, var(--azul-claro), #7bb9ff);
+      color: var(--branco);
+      padding: 25px;
+      border-radius: 14px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    body.dark-mode .card {
+      background: #2a2a2a;
+      color: var(--dark-text);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    }
+
+    .card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .top-player img {
+      border: 3px solid var(--top-gold);
+    }
+
+    footer {
+      background-color: var(--azul-escuro);
+      color: var(--branco);
+      text-align: center;
+      padding: 25px;
+      margin-top: 60px;
+    }
+
+    footer span {
+      color: var(--azul-claro);
+      font-weight: bold;
+    }
+
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: var(--azul-claro);
+      color: var(--branco);
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <button class="dark-toggle">Modo Escuro</button>
+
+  <header>
+    <h1> DOMINUS</h1>
     <p>Servidor oficial da comunidade <strong> DOMINUS</strong> no Discord.</p>
     <div style="margin-top:25px; display:flex; justify-content:center; align-items:center; gap:12px;">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord Logo" width="40" style="filter: invert(1);">
@@ -60,20 +228,6 @@
       <h2>Bem-vindo à DOMINUS</h2>
       <p>Entre, divirta-se e faça amizades na nossa comunidade.</p>
 
-      <div class="cards">
-        <div class="card">
-          <h3>Regras rápidas</h3>
-          <p>Respeito, sem spam e boa convivência para manter o servidor organizado e divertido.</p>
-        </div>
-        <div class="card">
-          <h3>Eventos da comunidade</h3>
-          <p>Participe de calls, desafios e ações especiais para integrar e evoluir com a galera.</p>
-        </div>
-        <div class="card">
-          <h3>Dúvidas frequentes</h3>
-          <p>Tem dúvida para entrar, convidar amigos ou apoiar? Veja tudo na seção de contato.</p>
-        </div>
-      </div>
     </section>
 
     <!-- Sobre -->
@@ -99,7 +253,105 @@
 </p>
 
 <p style="margin-top:15px; font-size:1.1rem; font-weight:bold;">
-@@ -354,74 +369,88 @@
+  📌 PIX para apoio:
+</p>
+
+<p style="
+  background:#f2f4f8;
+  padding:12px;
+  border-radius:10px;
+  font-weight:bold;
+  word-break:break-all;
+">
+  👉 675654d4-ec11-430d-8418-013012558719
+</p>
+
+    </section>
+
+    <!-- Primeiro Espaço -->
+    <section id="primeiro" class="section">
+      <h2>Comunidade em Ação</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="avatar-entre-servidor.jpg" alt="Pessoas jogando juntas">
+          <h3>Entre no servidor</h3>
+          <p>Faça parte da comunidade A DOMINUS e comece sua jornada agora.</p>
+          <a href="https://discord.gg/GeZJnRpfcD" target="_blank" style="display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:#0a1f44;color:#fff;font-weight:bold;text-decoration:none;">Entrar no Discord</a>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420" alt="Jogadores se divertindo">
+          <h3>Se divirta</h3>
+          <p>Jogue em call, dê risada e aproveite cada momento com a galera.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e" alt="Jogando videogame">
+          <h3>Jogue</h3>
+          <p>Escolha seu jogo favorito e partiu gameplay com amigos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ranking -->
+    <section id="ranking" class="section">
+      <h2>Ranking dos Jogadores</h2>
+      <div class="cards">
+        <div class="card top-player">
+          <img src="avatar-renanfatos.png" alt="Renanfatos">
+          <h3>#1 - Renanfatos</h3>
+          <p>XP Total: 1.864 // Nível: 1</p>
+        </div>
+        <div class="card">
+          <img src="avatar-rlk.png" alt="Rlk do guinda">
+          <h3>#2 - Rlk do guinda</h3>
+          <p>XP Total: 1.695 // Nível: 1</p>
+        </div>
+        <div class="card">
+          <img src="avatar-mtt.png" alt="mtt">
+          <h3>#3 - mtt</h3>
+          <p>XP Total: 1.251 // Nível: 1</p>
+        </div>
+        <div class="card">
+          <img src="avatar-eddie.png" alt="Eddie">
+          <h3>#4 - Eddie</h3>
+          <p>XP Total: 628 // Nível: 0</p>
+        </div>
+        <div class="card">
+          <img src="avatar-dumba.png" alt="Dumba">
+          <h3>#5 - Dumba</h3>
+          <p>XP Total: 445 // Nível: 0</p>
+        </div>
+      </div>
+    </section>
+
+   <!-- Patrocinadores -->
+<section id="patrocinadores" class="section">
+  <h2>Patrocinadores</h2>
+  <p>
+    Espaço dedicado a parceiros que fortalecem a comunidade
+    <strong>DOMINUS</strong>.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581091870627-3a9c1a5d9f12" alt="Em breve">
+      <h3>Em breve</h3>
+      <p>Este espaço será ocupado por um patrocinador.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600267185393-e158a98703de" alt="Área em manutenção">
+      <h3>Área em manutenção</h3>
+      <p>Estamos ajustando este espaço para novas parcerias.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f" alt="Parceria">
+      <h3>Sua marca aqui</h3>
+      <p>Entre em contato e faça parte da DOMINUS.</p>
+    </div>
+ <div style="text-align:center; margin-top:35px;">
+  <a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=dominuscomercy@gmail.com&su=Interesse%20em%20Patrocínio%20DOMINUS"
     target="_blank"
     style="
       display:inline-block;
@@ -125,21 +377,6 @@
       <h2>Contato</h2>
       <p>Para parcerias, dúvidas ou sugestões, entre em contato pelo e-mail abaixo:</p>
       <p style="margin-top:10px;font-weight:bold;">📧 dominuscomercy@gmail.com</p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Como entrar?</h3>
-          <p>Vá em "Primeiro Espaço" e clique em "Entrar no Discord" para participar da comunidade.</p>
-        </div>
-        <div class="card">
-          <h3>Posso convidar amigos?</h3>
-          <p>Sim. O servidor é aberto para quem quer jogar em call, conversar e construir amizades.</p>
-        </div>
-        <div class="card">
-          <h3>Interesse em patrocinar</h3>
-          <p>Use o botão "Seja patrocinador" para abrir o e-mail com assunto pronto e falar com a equipe.</p>
-        </div>
-      </div>
     </section>
   </main>
 
