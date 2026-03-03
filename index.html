@@ -10,6 +10,47 @@
   <meta name="keywords" content="DOMINUS, Discord, servidor Discord, comunidade gamer, jogar com amigos, Minecraft, Roblox, Rocket League, Free Fire, Fortnite" />
   <meta name="author" content="Servidor DOMINUS" />
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a1f44" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="canonical" href="https://dominusdiscord.com/" />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DOMINUS no Discord | Comunidade gamer para jogar com amigos" />
+  <meta property="og:description" content="Entre na comunidade DOMINUS no Discord para jogar com amigos, conhecer pessoas e participar de eventos." />
+  <meta property="og:url" content="https://dominusdiscord.com/" />
+  <meta property="og:site_name" content="DOMINUS" />
+  <meta property="og:image" content="https://dominusdiscord.com/banner-header.png" />
+  <meta property="og:image:secure_url" content="https://dominusdiscord.com/banner-header.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Banner da comunidade DOMINUS no Discord" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DOMINUS no Discord | Comunidade gamer para jogar com amigos" />
+  <meta name="twitter:description" content="Participe da DOMINUS no Discord e jogue Minecraft, Roblox, Rocket League, Free Fire, Fortnite e mais." />
+  <meta name="twitter:image" content="https://dominusdiscord.com/banner-header.png" />
+  <meta name="twitter:image:alt" content="Banner da comunidade DOMINUS no Discord" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWVMXX70RJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YWVMXX70RJ');
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "DOMINUS",
+      "url": "https://dominusdiscord.com/",
+      "description": "Comunidade gamer da DOMINUS no Discord para jogar com amigos e participar de eventos.",
+      "inLanguage": "pt-BR"
+    }
+  </script>
 
   <style>
     html { scroll-behavior: smooth; }
@@ -195,6 +236,54 @@
       font-weight: bold;
       z-index: 1000;
     }
+
+    .dark-toggle,
+    nav a,
+    .card,
+    .card a {
+      will-change: transform;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+    }
+
+    nav a:active {
+      transform: scale(0.96);
+    }
+
+    .dark-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark-toggle:active,
+    .card:active,
+    .card a:active {
+      transform: scale(0.98);
+    }
+
+    .card a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    nav a:focus-visible,
+    .dark-toggle:focus-visible,
+    .card a:focus-visible {
+      outline: 2px solid var(--azul-claro);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -204,7 +293,7 @@
     <h1> DOMINUS</h1>
     <p>Servidor oficial da comunidade <strong> DOMINUS</strong> no Discord.</p>
     <div style="margin-top:25px; display:flex; justify-content:center; align-items:center; gap:12px;">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord Logo" width="40" style="filter: invert(1);">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord Logo" width="40" style="filter: invert(1);" loading="eager" decoding="async" fetchpriority="high">
       <span style="font-size:1.1rem; font-weight:bold;">Servidor do Discord</span>
     </div>
   </header>
@@ -221,7 +310,7 @@
   <main class="container">
     <!-- Início -->
     <section id="inicio" class="section active">
-      <video class="video-fundo" autoplay muted loop playsinline>
+      <video class="video-fundo" autoplay muted loop playsinline preload="metadata">
         <source src="Agent_video_Pippit_20260123184228.mp4" type="video/mp4">
         Seu navegador não suporta vídeos.
       </video>
@@ -288,18 +377,18 @@
       <h2>Comunidade em Ação</h2>
       <div class="cards">
         <div class="card">
-          <img src="avatar-entre-servidor.jpg" alt="Pessoas jogando juntas">
+          <img src="avatar-entre-servidor.jpg" alt="Pessoas jogando juntas" loading="lazy" decoding="async">
           <h3>Entre no servidor</h3>
           <p>Faça parte da comunidade A DOMINUS e comece sua jornada agora.</p>
           <a href="https://discord.gg/GeZJnRpfcD" target="_blank" style="display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:#0a1f44;color:#fff;font-weight:bold;text-decoration:none;">Entrar no Discord</a>
         </div>
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420" alt="Jogadores se divertindo">
+          <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420" alt="Jogadores se divertindo" loading="lazy" decoding="async">
           <h3>Se divirta</h3>
           <p>Jogue em call, dê risada e aproveite cada momento com a galera.</p>
         </div>
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e" alt="Jogando videogame">
+          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e" alt="Jogando videogame" loading="lazy" decoding="async">
           <h3>Jogue</h3>
           <p>Escolha seu jogo favorito e partiu gameplay com amigos.</p>
         </div>
@@ -311,27 +400,27 @@
       <h2>Ranking dos Jogadores</h2>
       <div class="cards">
         <div class="card top-player">
-          <img src="avatar-renanfatos.png" alt="Renanfatos">
+          <img src="avatar-renanfatos.png" alt="Renanfatos" loading="lazy" decoding="async">
           <h3>#1 - Renanfatos</h3>
           <p>XP Total: 1.864 // Nível: 1</p>
         </div>
         <div class="card">
-          <img src="avatar-rlk.png" alt="Rlk do guinda">
+          <img src="avatar-rlk.png" alt="Rlk do guinda" loading="lazy" decoding="async">
           <h3>#2 - Rlk do guinda</h3>
           <p>XP Total: 1.695 // Nível: 1</p>
         </div>
         <div class="card">
-          <img src="avatar-mtt.png" alt="mtt">
+          <img src="avatar-mtt.png" alt="mtt" loading="lazy" decoding="async">
           <h3>#3 - mtt</h3>
           <p>XP Total: 1.251 // Nível: 1</p>
         </div>
         <div class="card">
-          <img src="avatar-eddie.png" alt="Eddie">
+          <img src="avatar-eddie.png" alt="Eddie" loading="lazy" decoding="async">
           <h3>#4 - Eddie</h3>
           <p>XP Total: 628 // Nível: 0</p>
         </div>
         <div class="card">
-          <img src="avatar-dumba.png" alt="Dumba">
+          <img src="avatar-dumba.png" alt="Dumba" loading="lazy" decoding="async">
           <h3>#5 - Dumba</h3>
           <p>XP Total: 445 // Nível: 0</p>
         </div>
@@ -348,7 +437,7 @@
 
   <div class="cards">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1534088568595-a066f410bcda" alt="Patrocinador 1">
+      <img src="https://images.unsplash.com/photo-1534088568595-a066f410bcda" alt="Patrocinador 1" loading="lazy" decoding="async">
       <h3>Patrocinador 1</h3>
       <p>Espaço reservado para a identidade visual do patrocinador.</p>
     </div>
